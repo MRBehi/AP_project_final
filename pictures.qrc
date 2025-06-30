@@ -2,4 +2,9 @@
     <qresource prefix="/background_image">
         <file>background_image/Game-Ground-Photo.JPG</file>
     </qresource>
+    <qresource prefix="/images">
+        <file>images/any_menu.png</file>
+        <file>images/Game_menu.png</file>
+        <file>images/Welcome_page.png</file>
+    </qresource>
 </RCC>

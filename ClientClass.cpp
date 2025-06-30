@@ -19,7 +19,7 @@ ClientClass::~ClientClass()
     delete ui;
 }
 
-void ClientClass::ConnectToServer() {
+void ClientClass::connectToServer() {
     socket->connectToHost("127.0.0.1", 1234);  // Use localhost and port matching server
     if (socket->waitForConnected(3000)) {
         qDebug() << "Connected to server!";
@@ -37,6 +37,13 @@ void ClientClass::readsocket() {
 void ClientClass::on_pushButton_clicked() {
     // For now, just log something simple
     qDebug() << "Send button clicked!";
-
+    welcomePage = new WelcomePage();
+    welcomePage->show();
+    this->hide();
     // You can add logic here later to send a message to the server
+}
+
+void ClientClass::onReadyRead() {
+    QByteArray incoming = socket->readAll();
+    ui->textEdit->append(QString::fromUtf8(incoming));
 }

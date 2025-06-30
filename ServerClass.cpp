@@ -2,11 +2,10 @@
 #include "ui_serverclass.h"
 #include <QDebug>
 #include <QNetworkInterface>
-#include <QHostInfo>
+#include <QHostAddress>
 
-//  Utility to get local WiFi IP address
+// Utility to get local WiFi IP address
 QString getWifiIPv4Address() {
-    QString wifiIPv4;
     QList<QNetworkInterface> interfaces = QNetworkInterface::allInterfaces();
     for (const QNetworkInterface& iface : interfaces) {
         if (iface.flags().testFlag(QNetworkInterface::IsUp) &&
@@ -27,12 +26,10 @@ QString getWifiIPv4Address() {
     return QString();
 }
 
-//  Constructor
 ServerClass::ServerClass(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ServerClass)
     , server(new QTcpServer(this))
-
 {
     ui->setupUi(this);
     setWindowTitle("Server");
@@ -49,8 +46,8 @@ ServerClass::ServerClass(QWidget *parent)
     }
 }
 
-//  Handle incoming connections
-void ServerClass::handleNewConnection() {
+void ServerClass::handleNewConnection()
+{
     while (server->hasPendingConnections()) {
         QTcpSocket* newSocket = server->nextPendingConnection();
         channels* clientChannel = new channels(newSocket, this);
@@ -59,7 +56,6 @@ void ServerClass::handleNewConnection() {
     }
 }
 
-//  Destructor
 ServerClass::~ServerClass()
 {
     delete ui;
