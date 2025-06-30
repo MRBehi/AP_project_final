@@ -1,0 +1,34 @@
+#ifndef PROFILE_H
+#define PROFILE_H
+
+#include <QDialog>
+
+#include "gamemenu.h"
+
+namespace Ui {
+class Profile;
+}
+
+class Profile : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit Profile(const QString& _username, GameMenu *parentPage, QWidget *parent = nullptr);
+    ~Profile();
+
+private slots:
+    void on_cancelButton_clicked();
+
+    void on_EditButtom_clicked();
+
+private:
+    Ui::Profile *ui;
+    GameMenu *gamemenu;
+
+    QString username;
+
+    void loadUserData();
+};
+
+#endif // PROFILE_H

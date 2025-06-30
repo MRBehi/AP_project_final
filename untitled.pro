@@ -15,9 +15,17 @@ SOURCES += \
     ServerClass.cpp \
     card.cpp \
     deck.cpp \
+    forgotpassword.cpp \
+    gamehistory.cpp \
+    gamemenu.cpp \
+    login.cpp \
     main.cpp \
     maingame.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    profile.cpp \
+    signup.cpp \
+    userstorage.cpp \
+    welcomepage.cpp
 
 HEADERS += \
     Channels.h \
@@ -25,14 +33,29 @@ HEADERS += \
     ServerClass.h \
     card.h \
     deck.h \
+    forgotpassword.h \
+    gamehistory.h \
+    gamemenu.h \
+    login.h \
     maingame.h \
-    mainwindow.h
+    mainwindow.h \
+    profile.h \
+    signup.h \
+    userstorage.h \
+    welcomepage.h
 
 FORMS += \
     ClientClass.ui \
     ServerClass.ui \
+    forgotpassword.ui \
+    gamehistory.ui \
+    gamemenu.ui \
+    login.ui \
     maingame.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    profile.ui \
+    signup.ui \
+    welcomepage.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

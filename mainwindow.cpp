@@ -5,7 +5,7 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)  // ✅ Correct UI class
+    , ui(new Ui::MainWindow)  // Correct UI class
 {
     ui->setupUi(this);
     setWindowTitle("Poker Game Launcher");
@@ -20,7 +20,7 @@ void MainWindow::on_BTN_client_clicked()
 {
     ClientClass* client = new ClientClass();
     client->show();
-    this->close(); // Or use hide() if you want to reopen it later
+    this->close(); // or hide() if you want to show it again later
 }
 
 void MainWindow::on_BTN_server_clicked()
