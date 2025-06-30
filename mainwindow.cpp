@@ -1,18 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "ClientClass.h"
+#include "ServerClass.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow)  // ✅ Correct UI class
 {
     ui->setupUi(this);
-
-    backgroundLabel = new QLabel(this);
-    backgroundLabel->setPixmap(QPixmap(":/images/mainmenu.png"));
-    backgroundLabel->setScaledContents(true);
-    backgroundLabel->lower();
-
-    backgroundLabel->resize(this->size());
+    setWindowTitle("Poker Game Launcher");
 }
 
 MainWindow::~MainWindow()
@@ -20,8 +16,16 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::resizeEvent(QResizeEvent *event) {
-    QMainWindow::resizeEvent(event);
-    if (backgroundLabel)
-        backgroundLabel->resize(this->size());
+void MainWindow::on_BTN_client_clicked()
+{
+    ClientClass* client = new ClientClass();
+    client->show();
+    this->close(); // Or use hide() if you want to reopen it later
+}
+
+void MainWindow::on_BTN_server_clicked()
+{
+    ServerClass* server = new ServerClass();
+    server->show();
+    this->close();
 }
