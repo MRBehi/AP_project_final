@@ -4,6 +4,8 @@
 #include <QDialog>
 #include <QTcpSocket>
 
+#include "welcomepage.h"
+
 namespace Ui {
 class ClientClass;
 }
@@ -19,6 +21,7 @@ public:
 private:
     Ui::ClientClass *ui;
     QTcpSocket* socket;
+    WelcomePage* welcomePage;
 
 public slots:
     void ConnectToServer();

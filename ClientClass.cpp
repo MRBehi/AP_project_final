@@ -37,6 +37,8 @@ void ClientClass::readsocket() {
 void ClientClass::on_pushButton_clicked() {
     // For now, just log something simple
     qDebug() << "Send button clicked!";
-
+    welcomePage = new WelcomePage();
+    welcomePage->show();
+    this->hide();
     // You can add logic here later to send a message to the server
 }
