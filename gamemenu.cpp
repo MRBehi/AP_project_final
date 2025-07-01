@@ -26,7 +26,7 @@ void GameMenu::on_gameHistoryButton_clicked()
 
 void GameMenu::on_profileButton_clicked()
 {
-    profile->loadUserData(); // حتما اطلاعات پروفایل را لود کن قبل از نمایش
+    profile->loadUserData();
     profile->show();
     this->hide();
 }

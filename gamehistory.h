@@ -3,7 +3,7 @@
 
 #include <QDialog>
 
-#include "gamemenu.h"
+class GameMenu;
 
 namespace Ui {
 class GameHistory;

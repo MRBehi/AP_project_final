@@ -7,6 +7,9 @@
 #include "profile.h"
 #include "gamehistory.h"
 
+class Profile;
+class GameHistory;
+
 namespace Ui {
 class GameMenu;
 }

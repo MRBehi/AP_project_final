@@ -1,5 +1,7 @@
 #ifndef USERSTORAGE_H
 #define USERSTORAGE_H
+#include <QString>
+#include <QStringList>
 
 class UserStorage
 {

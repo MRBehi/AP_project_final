@@ -3,8 +3,8 @@
 
 #include <QDialog>
 
-#include "signup.h"
 #include "login.h"
+#include "signup.h"
 
 namespace Ui {
 class WelcomePage;
@@ -25,8 +25,8 @@ private slots:
 
 private:
     Ui::WelcomePage *ui;
-    SignUp *signUpPage;
-    LogIn *logInPage;
+    class SignUp *signUpPage;
+    class LogIn *logInPage;
 };
 
 #endif // WELCOMEPAGE_H

@@ -3,12 +3,11 @@
 
 #include <QDialog>
 #include <QTcpSocket>
-
 #include "welcomepage.h"
 
-namespace Ui {
-class ClientClass;
-}
+QT_BEGIN_NAMESPACE
+namespace Ui { class ClientClass; }
+QT_END_NAMESPACE
 
 class ClientClass : public QDialog
 {
@@ -18,18 +17,16 @@ public:
     explicit ClientClass(QWidget *parent = nullptr);
     ~ClientClass();
 
+private slots:
+    void on_pushButton_clicked();      // For sending message
+    // void onReadyRead();                // Handle incoming messages
+    void readsocket();
+    void ConnectToServer();
+
 private:
     Ui::ClientClass *ui;
-    QTcpSocket* socket;
-    WelcomePage* welcomePage;
-
-public slots:
-    void ConnectToServer();
-    void readsocket();
-
-private slots:
-    void on_pushButton_clicked();
-
+    QTcpSocket *socket;
+    WelcomePage *welcomePage;
 };
 
 #endif // CLIENTCLASS_H

@@ -1,30 +1,35 @@
-#include "Channels.h"
+#include "channels.h"
 #include <QDebug>
 
-channels::channels(QTcpSocket* _socket, QObject* parent)
-    : QObject(parent), socket(_socket) {
-
-    // Print when a new channel is created
-    qDebug() << "New client channel initialized.";
-
-    // Connect the socket's readyRead signal to our custom slot
+channels::channels(QTcpSocket* socket, QObject *parent)
+    : QObject(parent), socket(socket)
+{
     connect(socket, &QTcpSocket::readyRead, this, &channels::onReadyRead);
-
-    // Handle client disconnection
-    connect(socket, &QTcpSocket::disconnected, this, &channels::onClientDisconnected);
+    connect(socket, &QTcpSocket::disconnected, this, &channels::onDisconnected);
 }
 
-void channels::onReadyRead() {
+channels::~channels()
+{
+    if (socket) {
+        socket->disconnectFromHost();
+        socket->deleteLater();
+    }
+}
+
+void channels::onReadyRead()
+{
     QByteArray data = socket->readAll();
     QString message = QString::fromUtf8(data);
-    qDebug() << "Client sent:" << message;
+    qDebug() << "Message received from client:" << message;
 
-    // Echo it back for now (you'll replace this with poker logic later)
-    socket->write("Server received: " + message.toUtf8());
+    emit messageReceived(message);
+
+    // Optional: Echo back to client
+    socket->write(QString("Echo: " + message).toUtf8());
 }
 
-void channels::onClientDisconnected() {
+void channels::onDisconnected()
+{
     qDebug() << "Client disconnected.";
-    socket->deleteLater();  // Clean up the socket
-    this->deleteLater();    // Clean up the channel object
+    emit clientDisconnected();
 }

@@ -2,11 +2,9 @@
 #define LOGIN_H
 
 #include <QDialog>
-
-#include "welcomepage.h"
-#include "forgotpassword.h"
 #include "gamemenu.h"
 
+class ForgotPassword;
 class WelcomePage;
 
 namespace Ui {

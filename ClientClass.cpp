@@ -12,6 +12,7 @@ ClientClass::ClientClass(QWidget *parent)
     socket = new QTcpSocket(this);
     connect(socket, &QTcpSocket::readyRead, this, &ClientClass::readsocket);
 
+    ConnectToServer();
 }
 
 ClientClass::~ClientClass()
@@ -20,7 +21,7 @@ ClientClass::~ClientClass()
 }
 
 void ClientClass::ConnectToServer() {
-    socket->connectToHost("127.0.0.1", 1234);  // Use localhost and port matching server
+    socket->connectToHost("127.0.0.1", 9001);  // Use localhost and port matching server
     if (socket->waitForConnected(3000)) {
         qDebug() << "Connected to server!";
     } else {
@@ -37,6 +38,9 @@ void ClientClass::readsocket() {
 void ClientClass::on_pushButton_clicked() {
     // For now, just log something simple
     qDebug() << "Send button clicked!";
+    QString message = ui->lineEdit->text();
+    qDebug() << "The written message was: " << message;
+
     welcomePage = new WelcomePage();
     welcomePage->show();
     this->hide();

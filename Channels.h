@@ -3,23 +3,24 @@
 
 #include <QObject>
 #include <QTcpSocket>
-#include <thread>
 
 class channels : public QObject
 {
     Q_OBJECT
 public:
-    channels(QTcpSocket* _socket,QObject *parent = nullptr);
+    explicit channels(QTcpSocket* socket, QObject *parent = nullptr);
+    ~channels();
 
 signals:
-
-private:
-    QTcpSocket *socket;
+    void messageReceived(const QString &message);
+    void clientDisconnected();
 
 private slots:
     void onReadyRead();
-    void onClientDisconnected();
+    void onDisconnected();
 
+private:
+    QTcpSocket *socket;
 };
 
 #endif // CHANNELS_H

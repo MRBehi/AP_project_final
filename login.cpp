@@ -1,5 +1,7 @@
 #include "login.h"
 #include "ui_login.h"
+#include "welcomepage.h"
+#include "forgotpassword.h"
 
 LogIn::LogIn(WelcomePage* parentPage,QWidget *parent)
     : QDialog(parent)
@@ -30,8 +32,8 @@ void LogIn::on_forgetpasswordButton_clicked()
 
 void LogIn::on_loginButton_clicked()
 {
-    QString username = ui->usernameLineEdit->text();
-    QString password = ui->passwordLineEdit->text();
+    QString username = ui->lgusernameLine->text();
+    QString password = ui->lgpasswordLine->text();
 
     if (username.isEmpty() || password.isEmpty()) {
         QMessageBox::warning(this, "Invalid log in", "Fill all the blanks.");

@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include "login.h"
 #include "gamemenu.h"
+class Login;
 
 namespace Ui {
 class ForgotPassword;

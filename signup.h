@@ -2,10 +2,12 @@
 #define SIGNUP_H
 
 #include <QDialog>
+#include <QMessageBox>
 
 #include "welcomepage.h"
 #include "UserStorage.h"
 #include "gamemenu.h"
+class WelcomePage;
 
 namespace Ui {
 class SignUp;

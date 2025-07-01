@@ -1,5 +1,6 @@
 #include "gamehistory.h"
 #include "ui_gamehistory.h"
+#include "gamemenu.h"
 
 GameHistory::GameHistory(const QString& _username, GameMenu *parentPage,QWidget *parent)
     : QDialog(parent)

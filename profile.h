@@ -4,6 +4,7 @@
 #include <QDialog>
 
 #include "gamemenu.h"
+class GameMenu;
 
 namespace Ui {
 class Profile;
@@ -16,6 +17,7 @@ class Profile : public QDialog
 public:
     explicit Profile(const QString& _username, GameMenu *parentPage, QWidget *parent = nullptr);
     ~Profile();
+    void loadUserData();
 
 private slots:
     void on_cancelButton_clicked();
@@ -27,8 +29,7 @@ private:
     GameMenu *gamemenu;
 
     QString username;
-
-    void loadUserData();
+    QString oldHashedPassword;
 };
 
 #endif // PROFILE_H

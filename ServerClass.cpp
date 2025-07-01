@@ -6,24 +6,27 @@
 
 // Utility to get local WiFi IP address
 QString getWifiIPv4Address() {
+    QString wifiIPv4;
     QList<QNetworkInterface> interfaces = QNetworkInterface::allInterfaces();
     for (const QNetworkInterface& iface : interfaces) {
         if (iface.flags().testFlag(QNetworkInterface::IsUp) &&
             iface.flags().testFlag(QNetworkInterface::IsRunning) &&
             !iface.flags().testFlag(QNetworkInterface::IsLoopBack)) {
-
+            qDebug() << iface.humanReadableName();
             for (const QNetworkAddressEntry& entry : iface.addressEntries()) {
                 if (entry.ip().protocol() == QAbstractSocket::IPv4Protocol) {
+                    wifiIPv4 = entry.ip().toString();
                     if (iface.humanReadableName().contains("wlan", Qt::CaseInsensitive) ||
                         iface.humanReadableName().contains("wi-fi", Qt::CaseInsensitive) ||
-                        iface.humanReadableName().contains("wireless", Qt::CaseInsensitive)) {
-                        return entry.ip().toString();
+                        iface.humanReadableName().contains("wireless", Qt::CaseInsensitive) ||
+                        iface.humanReadableName().contains("wlx", Qt::CaseInsensitive)) {
+                        return wifiIPv4;
                     }
                 }
             }
         }
     }
-    return QString();
+    return wifiIPv4;
 }
 
 ServerClass::ServerClass(QWidget *parent)
@@ -37,7 +40,7 @@ ServerClass::ServerClass(QWidget *parent)
     QString ip = getWifiIPv4Address();
     ui->label_3->setText(ip.isEmpty() ? "IP not found" : ip);
 
-    if (server->listen(QHostAddress::Any, 8080)) {
+    if (server->listen(QHostAddress::LocalHost, 9001)) {
         connect(server, &QTcpServer::newConnection, this, &ServerClass::handleNewConnection);
         ui->label_4->setText("Waiting for connections...");
     } else {

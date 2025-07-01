@@ -1,6 +1,7 @@
 #include "forgotpassword.h"
 #include "ui_forgotpassword.h"
 #include <QMessageBox>
+#include "userstorage.h"
 
 ForgotPassword::ForgotPassword(LogIn *parentPage, QWidget *parent)
     : QDialog(parent)
@@ -23,7 +24,7 @@ void ForgotPassword::on_cancelButton_clicked()
 
 void ForgotPassword::on_submitButton_clicked()
 {
-    QString phone = ui->phoneLineEdit->text().trimmed();
+    QString phone = ui->phonenoLine->text().trimmed();
 
     if (phone.isEmpty()) {
         QMessageBox::warning(this, "Invalid input", "Fill the blank.");
