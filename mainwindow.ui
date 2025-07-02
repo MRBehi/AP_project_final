@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/images/images/any_menu.png);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -49,7 +49,7 @@
      <item>
       <widget class="QPushButton" name="BTN_server">
        <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>start as server</string>
@@ -59,8 +59,7 @@
      <item>
       <widget class="QPushButton" name="BTN_client">
        <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>start as client</string>
