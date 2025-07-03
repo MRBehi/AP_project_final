@@ -6,14 +6,17 @@
 
 class channels : public QObject
 {
-    Q_OBJECT
+    Q_OBJECT  // <--- VERY IMPORTANT
+
 public:
     explicit channels(QTcpSocket* socket, QObject *parent = nullptr);
     ~channels();
 
+    void sendMessage(const QByteArray &data);
+
 signals:
-    void messageReceived(const QString &message);
-    void clientDisconnected();
+    void messageReceived(const QString &message);        // ✅ public signal
+    void clientDisconnected();                           // ✅ public signal
 
 private slots:
     void onReadyRead();
@@ -22,5 +25,6 @@ private slots:
 private:
     QTcpSocket *socket;
 };
+
 
 #endif // CHANNELS_H

@@ -2,18 +2,18 @@
 #define DECK_H
 
 #include <QVector>
-#include <algorithm>
-#include <random>
-#include "Card.h"
 
-class Deck {
+#include "card.h"
+
+class Deck
+{
 public:
-    QVector<Card> cards;
-
     Deck();
     void shuffle();
-    Card draw();
-    bool isEmpty() const;
+    Card* deal();
+private:
+    QVector<Card*> m_cards;
+    int m_index;
 };
 
 #endif // DECK_H

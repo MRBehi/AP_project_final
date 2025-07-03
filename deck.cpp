@@ -1,27 +1,19 @@
 #include "deck.h"
+#include <QRandomGenerator>
+#include <algorithm>
 
-Deck::Deck() {
-    for (int v = 1; v <= 13; ++v) {
-        cards.append(Card(Suit::Diamond, v));
-        cards.append(Card(Suit::Gold, v));
-        cards.append(Card(Suit::Coin, v));
-        cards.append(Card(Suit::Dollar, v));
-    }
+Deck::Deck() : m_index(0) {
+    for (int t = Card::Diamond; t <= Card::Coin; ++t)
+        for (int r = Card::Two; r <= Card::Bitcoin; ++r)
+            m_cards.append(new Card(Card::Type(t), Card::Rank(r)));
+    shuffle();
 }
 
 void Deck::shuffle() {
-    std::random_device rd;
-    std::mt19937 g(rd());
-    std::shuffle(cards.begin(), cards.end(), g);
+    std::shuffle(m_cards.begin(), m_cards.end(), *QRandomGenerator::global());
+    m_index = 0;
 }
 
-Card Deck::draw() {
-    if (!cards.isEmpty()) {
-        return cards.takeLast();
-    }
-    return Card(Suit::Diamond, -1);
-}
-
-bool Deck::isEmpty() const {
-    return cards.isEmpty();
+Card* Deck::deal() {
+    return (m_index < m_cards.size()) ? m_cards[m_index++] : nullptr;
 }

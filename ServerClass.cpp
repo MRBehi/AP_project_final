@@ -40,7 +40,7 @@ ServerClass::ServerClass(QWidget *parent)
     QString ip = getWifiIPv4Address();
     ui->label_3->setText(ip.isEmpty() ? "IP not found" : ip);
 
-    if (server->listen(QHostAddress::LocalHost, 9001)) {
+    if (server->listen(QHostAddress::Any, 9001)) {
         connect(server, &QTcpServer::newConnection, this, &ServerClass::handleNewConnection);
         ui->label_4->setText("Waiting for connections...");
     } else {

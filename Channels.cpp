@@ -33,3 +33,9 @@ void channels::onDisconnected()
     qDebug() << "Client disconnected.";
     emit clientDisconnected();
 }
+
+void channels::sendMessage(const QByteArray &data) {
+    if (socket && socket->isOpen()) {
+        socket->write(data);
+    }
+}

@@ -21,7 +21,7 @@ ClientClass::~ClientClass()
 }
 
 void ClientClass::ConnectToServer() {
-    socket->connectToHost("127.0.0.1", 9001);  // Use localhost and port matching server
+    socket->connectToHost("192.168.1.5", 9001);  // Replace with your actual server IP
     if (socket->waitForConnected(3000)) {
         qDebug() << "Connected to server!";
     } else {

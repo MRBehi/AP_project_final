@@ -21,6 +21,7 @@ SOURCES += \
     login.cpp \
     main.cpp \
     maingame.cpp \
+    maingamepage.cpp \
     mainwindow.cpp \
     profile.cpp \
     signup.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     gamemenu.h \
     login.h \
     maingame.h \
+    maingamepage.h \
     mainwindow.h \
     profile.h \
     signup.h \
@@ -52,6 +54,7 @@ FORMS += \
     gamemenu.ui \
     login.ui \
     maingame.ui \
+    maingamepage.ui \
     mainwindow.ui \
     profile.ui \
     signup.ui \

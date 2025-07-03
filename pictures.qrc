@@ -7,4 +7,58 @@
         <file>images/Game_menu.png</file>
         <file>images/Welcome_page.png</file>
     </qresource>
+    <qresource prefix="/cards">
+        <file>cards/2_coin.JPG</file>
+        <file>cards/2_dimond.JPG</file>
+        <file>cards/2_dollar.JPG</file>
+        <file>cards/2_gold.JPG</file>
+        <file>cards/3_coin.JPG</file>
+        <file>cards/3_dimond.JPG</file>
+        <file>cards/3_dollar.JPG</file>
+        <file>cards/3_gold.JPG</file>
+        <file>cards/4_coin.JPG</file>
+        <file>cards/4_dimond.JPG</file>
+        <file>cards/4_dollar.JPG</file>
+        <file>cards/4_gold.JPG</file>
+        <file>cards/5_coin.JPG</file>
+        <file>cards/5_dimond.JPG</file>
+        <file>cards/5_dollar.JPG</file>
+        <file>cards/5_gold.JPG</file>
+        <file>cards/6_coin.JPG</file>
+        <file>cards/6_dimond.JPG</file>
+        <file>cards/6_dollar.JPG</file>
+        <file>cards/6_gold.JPG</file>
+        <file>cards/7_coin.JPG</file>
+        <file>cards/7_dimond.JPG</file>
+        <file>cards/7_dollar.JPG</file>
+        <file>cards/7_gold.JPG</file>
+        <file>cards/8_coin.JPG</file>
+        <file>cards/8_dimond.JPG</file>
+        <file>cards/8_dollar.JPG</file>
+        <file>cards/8_gold.JPG</file>
+        <file>cards/9_coin.JPG</file>
+        <file>cards/9_dimond.JPG</file>
+        <file>cards/9_dollar.JPG</file>
+        <file>cards/9_gold.JPG</file>
+        <file>cards/10_coin.JPG</file>
+        <file>cards/10_dimond.JPG</file>
+        <file>cards/10_dollar.JPG</file>
+        <file>cards/10_gold.JPG</file>
+        <file>cards/bitcoin_coin.JPG</file>
+        <file>cards/bitcoin_dimond.JPG</file>
+        <file>cards/bitcoin_dollar.JPG</file>
+        <file>cards/bitcoin_gold.JPG</file>
+        <file>cards/king_coin.JPG</file>
+        <file>cards/king_dimond.JPG</file>
+        <file>cards/king_dollar.JPG</file>
+        <file>cards/king_gold.JPG</file>
+        <file>cards/queen_coin.JPG</file>
+        <file>cards/queen_dimond.JPG</file>
+        <file>cards/queen_dollar.JPG</file>
+        <file>cards/queen_gold.JPG</file>
+        <file>cards/soldier_coin.JPG</file>
+        <file>cards/soldier_dimond.JPG</file>
+        <file>cards/soldier_dollar.JPG</file>
+        <file>cards/soldier_gold.JPG</file>
+    </qresource>
 </RCC>
